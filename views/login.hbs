@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>ADD Project Page</title>
+
+    {{!-- <script src="project.js"></script> --}}
+
+    <link rel="stylesheet" href="public/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+      integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body style="background-color: gainsboro">
+    <nav>
+      <div class="nav-left">
+        <img src="public/assets/logo.png" style="width: 40px" alt="logo" />
+
+        <ul>
+          <li>
+            <a href="/home">Home</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="nav-right">
+      
+        <div class="nav-auth">
+       
+          {{#if isLogin}}
+          <a href="#">Hallo, {{user.name}}</a>
+          <a href="/logout">Logout</a>    
+          {{else}}
+          <a href="/login" class="">LOGIN</a>
+          <a href="/register">REGISTER</a>
+          {{/if}}
+       
+        </div>
+
+        <div class="nav-contact">
+        <a href="/contact">Contact</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Form Input New Project -->
+    {{!--  onsubmit="addProject(event) = untuk JS  --}}
+    <form class="form-input"  method="POST" action="/login" >
+        <h2 style="text-align: center">LOGIN</h2>
+    
+             {{#if messages.danger}}
+              <div class="alert alert-danger" role="alert">
+                {{messages.danger}}
+              </div>
+            {{/if}}
+            {{#if messages.success}}
+              <div class="alert alert-success" role="alert">
+                {{messages.success}}
+              </div>
+            {{/if}}
+
+      <div>
+        <label style="font-weight: bold; font-size: 20px" for="input-tittle"
+          >Email</label
+        >
+        <input type="email" id="inputTittle" name="inputEmail"/>
+      </div>
+
+      
+      <div>
+        <label style="font-weight: bold; font-size: 20px" for="input-tittle"
+          >Password</label
+        >
+        <input type="password" id="inputTittle" name="inputPassword"/>
+      </div>
+  
+     
+      <button style="cursor:pointer" type="submit" >Login</button>
+    </form>
+    <!-- End Of New Project Input -->
+
+  </body>
+</html>
