@@ -34,7 +34,7 @@ app.use(session({
    }
 }))
 
-app.get("/home", function(req,res){
+app.get("/", function(req,res){
   let userId
   let query
 
