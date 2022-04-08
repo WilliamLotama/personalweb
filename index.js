@@ -66,7 +66,7 @@ app.get("/home", function(req,res){
               ...item,
               duration: getDistanceTime(item.start_date, item.end_date),
               isLogin: req.session.isLogin,
-              description: item.description.slice(0,20) + '.....'
+              description: item.description.slice(0,50) + '.....'
           }
       })
         res.render('index', {projects:data,isLogin: req.session.isLogin, user: req.session.user})
