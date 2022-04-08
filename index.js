@@ -162,7 +162,7 @@ app.post('/login', function(req, res){
               }
 
               req.flash('success', 'Login Success')
-              res.redirect('/home')
+              res.redirect('/')
           } else {
               // console.log('Password salah');
               req.flash('danger', 'Password tidak cocok!')
@@ -176,7 +176,7 @@ app.post('/login', function(req, res){
 app.get('/logout', function(req, res){
   req.session.destroy()
 
-  res.redirect('/home')
+  res.redirect('/')
 
 })
 
@@ -231,8 +231,8 @@ app.get('/delete-project/:id', function(req, res){
 
         client.query(query, function(err,result){
             if (err) throw err
-
-            res.redirect('/home')
+          done()
+            res.redirect('/')
           })   
 
       })  
@@ -261,8 +261,9 @@ app.post('/myProject', upload.single('inputImage') ,function(req, res) {
 
     client.query(query, function(err,result){
         if (err) throw err
+        done()
 
-        res.redirect('/home')
+        res.redirect('/')
       })   
 
   }) 
@@ -347,7 +348,7 @@ app.post ('/edit-project/:id',upload.single('inputImage') ,(req, res) => {
           if (err) throw err
           done()
 
-          res.redirect('/home')
+          res.redirect('/')
 
       })
   })
